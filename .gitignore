@@ -1,0 +1,27 @@
+# 💡 Node.js dependencies
+node_modules/
+
+# 💡 Environment variables
+.env
+
+# 💡 Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 💡 OS-generated
+.DS_Store
+Thumbs.db
+
+# 💡 VSCode settings (optional)
+.vscode/
+
+# 💡 Build outputs (kung applicable)
+dist/
+build/
+
+# 💡 Coverage (for test tools like jest)
+coverage/
+
+# 💡 Local history or temp
+*.local
