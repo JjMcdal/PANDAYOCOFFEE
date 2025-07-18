@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.tabs button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  background: #007BFF;
+  color: #fff;
+}
+
+.form {
+  display: none;
+  margin-top: 20px;
+}
+
+.form.active {
+  display: block;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#message {
+  margin-top: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, <span id="username">User</span>!</h1>
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <script>
+    // ✅ Check if token exists in local storage
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      // No token found? Redirect to login page
+      window.location.href = '/';
+    } else {
+      // ✅ Call backend to verify token and get fresh user data
+      fetch('/api/me', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Unauthorized');
+        }
+        return res.json();
+      })
+      .then(data => {
+        // ✅ Display username from backend
+        document.getElementById('username').textContent = data.username;
+      })
+      .catch(err => {
+        console.error(err);
+        // ✅ If token invalid or expired, remove it and redirect
+        localStorage.removeItem('token');
+        window.location.href = '/';
+      });
+    }
+
+    // ✅ Logout functionality
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('token');
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>
